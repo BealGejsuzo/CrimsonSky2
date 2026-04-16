@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Happy Anniversary</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #ffdde1 0%, #ee9ca7 100%);
+      font-family: 'Segoe UI', 'Poppins', 'Quicksand', system-ui, 'Dancing Script', cursive, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 550px;
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 64px 48px 64px 48px;
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), 0 0 0 12px rgba(255, 200, 210, 0.5);
+      overflow: hidden;
+      padding: 24px 22px 38px;
+    }
+
+    .photo-frame {
+      background: #fff0f2;
+      border-radius: 48px;
+      padding: 16px 12px 12px 12px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), inset 0 1px 4px rgba(255,255,200,0.8);
+    }
+
+    .love-side {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .love-left, .love-right {
+      font-size: 2.2rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .love-center {
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 6px;
+      color: #e34262;
+      margin: 6px 0 4px;
+    }
+
+    .love-center span {
+      display: inline-block;
+      animation: heartbeat 1.4s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); color: #ff8da1; }
+    }
+
+    .image-container {
+      background: #ffe9ec;
+      border-radius: 36px;
+      padding: 12px;
+      margin: 6px 0;
+      border: 2px dashed #ffb6c1;
+      box-shadow: inset 0 0 0 2px white, 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .photo-preview {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 28px;
+      display: block;
+      background: #ffe2e7;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    }
+
+    .anniversary-title {
+      text-align: center;
+      margin: 16px 0 12px;
+    }
+
+    .anniversary-title h2 {
+      font-size: 1.9rem;
+      color: #b13e55;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-shadow: 2px 2px 0 #ffd0d8;
+    }
+
+    .date-badge {
+      background: #ffd9e0;
+      display: inline-block;
+      padding: 6px 20px;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #a1344b;
+      margin-top: 6px;
+      box-shadow: inset 0 -1px 0 #ffb3bf, 0 3px 6px rgba(0,0,0,0.05);
+    }
+
+    .names {
+      font-size: 1.7rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #c44562, #ff8aa5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-top: 8px;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .next-btn {
+      display: block;
+      width: fit-content;
+      margin: 28px auto 12px;
+      background: #ff5e7e;
+      padding: 12px 38px;
+      border-radius: 60px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.3rem;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 6px 0 #9e3a4e;
+      transition: 0.08s linear;
+      font-family: inherit;
+    }
+
+    .next-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #9e3a4e;
+    }
+
+    .letter-page {
+      background: #fff9fb;
+      border-radius: 56px;
+      padding: 28px 24px;
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .typewriter-container {
+      background: #fff5f7;
+      padding: 24px 20px;
+      border-radius: 42px;
+      border-left: 12px solid #ff9eb2;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #3e2a2f;
+      font-weight: 500;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 400px;
+      max-height: 500px;
+      overflow-y: auto;
+      font-family: 'Segoe UI', 'Quicksand', system-ui;
+    }
+
+    .wait-message {
+      background: #ffecf0;
+      border-radius: 60px;
+      padding: 12px 18px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #c95b74;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .wait-message:hover {
+      background: #ffe1e8;
+      transform: scale(1.01);
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.2rem;
+      background-color: #e05a78;
+      vertical-align: middle;
+      margin-left: 4px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .back-home {
+      background: #ffb3c1;
+      border: none;
+      border-radius: 40px;
+      padding: 8px 18px;
+      margin-top: 24px;
+      font-weight: bold;
+      color: #581c2c;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: inline-block;
+      transition: 0.2s;
+    }
+
+    .back-home:hover {
+      background: #ff9aaf;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .footer-love {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #b95a70;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- HALAMAN UTAMA -->
+  <div id="mainPage">
+    <div class="card">
+      <div class="photo-frame">
+        <div class="love-side">
+          <div class="love-left">❤️</div>
+          <div class="love-center"><span>❤️</span> LOVE <span>❤️</span></div>
+          <div class="love-right">❤️</div>
+        </div>
+        <div class="image-container">
+          <!-- FOTO LANGSUNG DARI URL YANG KAMU KASIH -->
+          <img id="dynamicPhoto" class="photo-preview" src="https://gangalink.vercel.app/i/db8cpgkr.jpg" alt="Foto Bella & Alta">
+        </div>
+        <div class="love-side" style="margin-top: 8px;">
+          <div class="love-left">💗</div>
+          <div class="love-center">💖💖💖</div>
+          <div class="love-right">💗</div>
+        </div>
+      </div>
+
+      <div class="anniversary-title">
+        <h2>Happy Anniversary</h2>
+        <div class="date-badge">🎉 2,9 Tahun 🎉</div>
+        <div class="names">Bella & Alta</div>
+      </div>
+
+      <button id="nextButton" class="next-btn">➡️ Next ⬅️</button>
+      <div class="footer-love">✨ love from heart ✨</div>
+    </div>
+  </div>
+
+  <!-- HALAMAN KATA-KATA -->
+  <div id="letterPage" class="hidden">
+    <div class="letter-page">
+      <div id="waitingTrigger" class="wait-message">
+       Ciee nungguin yaa kata katanya
+        <span style="font-size:1.5rem;">👇</span>
+      </div>
+      <div id="typewriterBox" class="typewriter-container">
+        <div id="typingMessage" style="min-height: 280px;"></div>
+        <span id="cursorSpan" class="typing-cursor"></span>
+      </div>
+      <button id="backHomeBtn" class="back-home">Kembali </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fullMessage = `Happy anniversary sayangku cintaku yang 2,9tahun semoga di anniversary ini kita lebih sayang lagi memperbaiki lagi dan ga boleh nakal yaa sayang kan kita mau nikah jadi apa pun itu harus turutin kata pasangan yaa sayang aak tercinta maafin kalau aak banyak salah maafin kalau aak sering bikin ayang aak kecewa terus maafin aak sering kasar aak perbaiki semuanya yaa sayangku inget kita udah saling dikenal sama orang tua jadi gaboleh ada kata orang ketiga yaa sayang hanya kita berdua ajaa Alta dan Bella yang menjadi saksi susah seneng bareng semuanya dari 0 bukan dari 100 aak sangatt sayangg ayang aak gaboleh nakal yaa sayangku cintaku sehat terus buat ayang rezekinya lancar dijauhi dari marabahaya panjang umurnyaa dijagain lagi diri ayangnyaa sayang yaa sayangku cintakuu buat mamak bapak juga makasih udah bolehin dan percayoin Alta sebaik ini dikeluarga makasih udah bikin Alta seneng keterima dengan baik sehat terus yaa kalian semuanyaa lovee youu all love you moree sayangku cintakuu tersayangg 💓💓💓💓💓🌷🌷🌷🌷🌷😙😙😙😚😚😚😚😚😘😘😘🥰🥰🥰😍😍😍🫂🫂🫂🫂🫂🫂💞💞💞💞💓💓💓💓💗💗💕💕💕💕💘💘💘💝💝💝💖💖💖`;
+
+  // Ambil elemen
+  const mainPage = document.getElementById('mainPage');
+  const letterPage = document.getElementById('letterPage');
+  const nextBtn = document.getElementById('nextButton');
+  const backBtn = document.getElementById('backHomeBtn');
+  const waitingTrigger = document.getElementById('waitingTrigger');
+  const typingMsgDiv = document.getElementById('typingMessage');
+  const cursorSpan = document.getElementById('cursorSpan');
+
+  // Variabel typing
+  let isTypingActive = false;
+  let currentIndex = 0;
+  let typingInterval = null;
+  let isMessageComplete = false;
+
+  function resetTypingState() {
+    if (typingInterval) {
+      clearInterval(typingInterval);
+      typingInterval = null;
+    }
+    isTypingActive = false;
+    currentIndex = 0;
+    isMessageComplete = false;
+    typingMsgDiv.innerHTML = '';
+    if (cursorSpan) cursorSpan.style.display = 'inline-block';
+    cursorSpan.style.opacity = '1';
+  }
+
+  function executeFullTypingWithPrelude() {
+    if (typingInterval) clearInterval(typingInterval);
+    resetTypingState();
+    
+    typingMsgDiv.innerHTML = "💬 yaudah nih kata katanya... 💬";
+    
+    setTimeout(() => {
+      currentIndex = 0;
+      isTypingActive = true;
+      isMessageComplete = false;
+      
+      typingInterval = setInterval(() => {
+        if (!isTypingActive) return;
+        if (currentIndex < fullMessage.length) {
+          typingMsgDiv.innerHTML += fullMessage.charAt(currentIndex);
+          currentIndex++;
+          const container = document.querySelector('.typewriter-container');
+          if (container) container.scrollTop = container.scrollHeight;
+        } else {
+          clearInterval(typingInterval);
+          typingInterval = null;
+          isMessageComplete = true;
+          isTypingActive = false;
+          if (cursorSpan) cursorSpan.style.opacity = '0.6';
+          typingMsgDiv.innerHTML += `<br><br>🌸 Love you more sayangku 🌸`;
+        }
+      }, 30);
+    }, 500);
+  }
+
+  function showPreludeAndType() {
+    if (isTypingActive) return;
+    if (isMessageComplete) {
+      resetTypingState();
+      executeFullTypingWithPrelude();
+    } else {
+      executeFullTypingWithPrelude();
+    }
+  }
+
+  waitingTrigger.addEventListener('click', showPreludeAndType);
+
+  function showLetterPage() {
+    if (typingInterval) clearInterval(typingInterval);
+    isTypingActive = false;
+    isMessageComplete = false;
+    currentIndex = 0;
+    typingMsgDiv.innerHTML = 'Klik "Ciee Diatas "';
+    cursorSpan.style.display = 'inline-block';
+    cursorSpan.style.opacity = '1';
+    mainPage.classList.add('hidden');
+    letterPage.classList.remove('hidden');
+  }
+
+  function showMainPage() {
+    if (typingInterval) clearInterval(typingInterval);
+    mainPage.classList.remove('hidden');
+    letterPage.classList.add('hidden');
+    isTypingActive = false;
+    isMessageComplete = false;
+    currentIndex = 0;
+  }
+
+  nextBtn.addEventListener('click', showLetterPage);
+  backBtn.addEventListener('click', showMainPage);
+</script>
+</body>
+</html>
